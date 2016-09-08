@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace ColonyClient
 {
-	public partial class Config : ContentPage
+	public partial class ConfigGeneral : ContentPage
 	{
-		public Config()
+		public ConfigGeneral()
 		{
 			InitializeComponent();
 		}

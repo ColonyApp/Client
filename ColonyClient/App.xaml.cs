@@ -9,7 +9,7 @@ namespace ColonyClient
 			InitializeComponent();
 
 			//MainPage = new ColonyClientPage();
-			MainPage = new Config();
+			MainPage = new ConfigGeneral();
 		}
 
 		protected override void OnStart()
