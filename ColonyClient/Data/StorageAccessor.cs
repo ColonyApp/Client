@@ -2,6 +2,7 @@
 using PCLStorage;
 using System.Threading.Tasks;
 
+
 namespace ColonyClient
 {
 	public class StorageAccessor
@@ -17,14 +18,14 @@ namespace ColonyClient
 			FileName = fileName;
 		}
 
-		public async Task<bool> Write(string contents)
+		public async Task<bool> WriteAsync(string contents)
 		{
 			bool returnValue = false;
 			try
 			{
 				IFolder rootFolder = FileSystem.Current.LocalStorage;
 				IFile file = await rootFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
-				await file.WriteAllTextAsync(contents);
+				await Task.WhenAll(file.WriteAllTextAsync(contents));
 				returnValue = true;
 			}
 			catch
@@ -34,7 +35,7 @@ namespace ColonyClient
 			return returnValue;
 		}
 
-		public async Task<string> read()
+		public async Task<string> ReadAsync()
 		{
 			string returnValue = string.Empty;
 			IFolder rootFolder = FileSystem.Current.LocalStorage;

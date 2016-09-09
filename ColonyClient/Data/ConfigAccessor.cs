@@ -7,26 +7,51 @@ namespace ColonyClient
 	public class ConfigAccessor
 	{
 		string fileName;
-		public JSONInfomationOfUser UserInfo { get; set;}
 
 		public ConfigAccessor()
 		{
 			fileName = Const.FILE_NAME;
 		}
 
-		public async Task<bool> write()
+		public async Task<bool> writeAsync(InfomationOfUser target)
 		{
-			var contents = JsonConvert.SerializeObject(UserInfo);
+			var contents = JsonConvert.SerializeObject(transrate2JSONInformationOfUser(target));
 			var storage = new StorageAccessor(fileName);
-			return await storage.Write(contents);
+			return await storage.WriteAsync(contents);
 		}
 
-		public async Task<JSONInfomationOfUser> read()
+		public async Task<InfomationOfUser> readAsync()
 		{
 			var storage = new StorageAccessor(fileName);
-			var readData = await storage.read();
-			JSONInfomationOfUser returnValue = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData);
-			return returnValue;
+			var readData = await Task.WhenAll(storage.ReadAsync());
+			JSONInfomationOfUser content = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData[0]);
+			return transrate2InformationOfUser(content);
+		}
+
+		private InfomationOfUser transrate2InformationOfUser(JSONInfomationOfUser target)
+		{
+			return new InfomationOfUser
+			{
+				UserID = target.UserID,
+				NickName = target.NickName,
+				MailAddress = target.MailAddress,
+				IsLogicalDelete = target.IsLogicalDelete,
+				GroupID01 = target.GroupID01,
+				GroupName01 = target.GroupName01
+			};
+		}
+
+		private JSONInfomationOfUser transrate2JSONInformationOfUser(InfomationOfUser target)
+		{
+			return new JSONInfomationOfUser
+			{
+				UserID = target.UserID,
+				NickName = target.NickName,
+				MailAddress = target.MailAddress,
+				IsLogicalDelete = target.IsLogicalDelete,
+				GroupID01 = target.GroupID01,
+				GroupName01 = target.GroupName01
+			};
 		}
 	}
 }
