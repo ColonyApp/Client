@@ -1,9 +1,9 @@
 ﻿using System;
 namespace ColonyClient
 {
-	public class ModelWant
+	public class ModelConfigEdit
 	{
-		public ModelWant()
+		public ModelConfigEdit()
 		{
 		}
 	}

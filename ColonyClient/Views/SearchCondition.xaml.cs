@@ -12,12 +12,14 @@ namespace ColonyClient
 			InitializeComponent();
 		}
 
-		public void SearchDetailButtonClicked(object sender, EventArgs e)
+		public async void SearchDetailButtonClicked(object sender, EventArgs e)
 		{
+			await Navigation.PushAsync(new SearchConditionDetail());
 		}
 
-		public void SearchButtonClicked(object sender, EventArgs e)
+		public async void SearchButtonClicked(object sender, EventArgs e)
 		{
+			await Navigation.PushAsync(new SearchResult());
 		}
 	}
 }

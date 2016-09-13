@@ -5,9 +5,9 @@
 		Title = "Search Condition"
 		BackgroundColor="Black">
 	<ContentPage.Content>
-		<StackLayout>
-			<Label Text="Condition" BackgroundColor="White"/>
-			<Entry Text="" BackgroundColor="White" Placeholder="Enter Searching Condition!"/>
+		<StackLayout Spacing="20">
+			<Label Text="Condition" BackgroundColor="Black" TextColor="White" />
+			<Entry Text="" BackgroundColor="Black" Placeholder="Enter Searching Condition!" TextColor="White" />
 			<Button Text="Set Detail Condition" TextColor="White" BackgroundColor="#005756" Clicked="SearchDetailButtonClicked" />
 			<Button Text="Execute Searching" TextColor="White" BackgroundColor="#66cc66" Clicked="SearchButtonClicked" />
 		</StackLayout>

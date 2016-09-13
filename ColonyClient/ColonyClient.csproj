@@ -80,11 +80,6 @@
     <Compile Include="Data\StorageAccessor.cs" />
     <Compile Include="Data\Const.cs" />
     <Compile Include="Data\ConfigAccessor.cs" />
-    <Compile Include="Models\ModelConfig.cs" />
-    <Compile Include="Models\ModelSearch.cs" />
-    <Compile Include="Models\ModelWant.cs" />
-    <Compile Include="Models\ModelGet.cs" />
-    <Compile Include="Models\ModelGive.cs" />
     <Compile Include="Views\TabbedMainPage.cs" />
     <Compile Include="Views\Want.xaml.cs">
       <DependentUpon>Want.xaml</DependentUpon>
@@ -98,6 +93,22 @@
     <Compile Include="Views\SearchConditionDetail.xaml.cs">
       <DependentUpon>SearchConditionDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ViewModelConfigEdit.cs" />
+    <Compile Include="ViewModels\ViewModelConfigGeneral.cs" />
+    <Compile Include="ViewModels\ViewModelGet.cs" />
+    <Compile Include="ViewModels\ViewModelGive.cs" />
+    <Compile Include="ViewModels\ViewModelSearchCondition.cs" />
+    <Compile Include="ViewModels\ViewModelSearchConditionDetail.cs" />
+    <Compile Include="ViewModels\ViewModelSearchResult.cs" />
+    <Compile Include="ViewModels\ViewModelWant.cs" />
+    <Compile Include="Models\ModelConfigEdit.cs" />
+    <Compile Include="Models\ModelConfigGeneral.cs" />
+    <Compile Include="Models\ModelGet.cs" />
+    <Compile Include="Models\ModelGive.cs" />
+    <Compile Include="Models\ModelSearcCondition.cs" />
+    <Compile Include="Models\ModelSearchConditionDetail.cs" />
+    <Compile Include="Models\ModelSearchResult.cs" />
+    <Compile Include="Models\ModelWant.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLStorage">

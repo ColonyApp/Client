@@ -1,9 +1,9 @@
 ﻿using System;
 namespace ColonyClient
 {
-	public class ModelGive
+	public class ViewModelGet
 	{
-		public ModelGive()
+		public ViewModelGet()
 		{
 		}
 	}

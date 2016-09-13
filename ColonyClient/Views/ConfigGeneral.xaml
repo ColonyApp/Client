@@ -5,14 +5,14 @@
 		Title = "Config"
 		BackgroundColor="Black">
 	<ContentPage.Content>
-		<StackLayout>
-			<Label Text="Nick Name" BackgroundColor="White" />
-			<Entry Text="{Binding NickName}" Placeholder="Enter Nick Name!" BackgroundColor="White" />
-			<Label Text="Mail Address" BackgroundColor="White" /> 
-			<Entry Text="{Binding MailAddress}" Placeholder="Enter Mail Address!" BackgroundColor="White" />
-			<Label Text="Group" IsEnabled="false" BackgroundColor="White" />
-			<Entry Text="{Binding GroupName01}" Placeholder="Enter Group Name!" IsEnabled="false" BackgroundColor="White" />
-			<Button Text="Edit!" Clicked="OnEditButtonClicked" BackgroundColor="#005756" />
+		<StackLayout Spacing="20">
+			<Label Text="Nick Name" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
+			<Entry Text="{Binding NickName}" TextColor="Black" IsEnabled="false" BackgroundColor="White" />
+			<Label Text="Mail Address" TextColor="White" IsEnabled="false" BackgroundColor="Black" /> 
+			<Entry Text="{Binding MailAddress}" TextColor="Black" IsEnabled="false" BackgroundColor="White" />
+			<Label Text="Group" IsEnabled="false" TextColor="White" IsVisible="false" BackgroundColor="Black" />
+			<Entry Text="{Binding GroupName01}" IsEnabled="false" TextColor="Black" IsVisible="false" BackgroundColor="White" />
+			<Button Text="Edit!" Clicked="OnEditButtonClicked" BackgroundColor="#66cc66" TextColor="White" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

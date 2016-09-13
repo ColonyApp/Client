@@ -1,9 +1,9 @@
 ﻿using System;
 namespace ColonyClient
 {
-	public class ModelSearch
+	public class ViewModelWant
 	{
-		public ModelSearch()
+		public ViewModelWant()
 		{
 		}
 	}
