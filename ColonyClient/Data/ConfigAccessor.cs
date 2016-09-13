@@ -6,23 +6,23 @@ namespace ColonyClient
 {
 	public class ConfigAccessor
 	{
-		string fileName;
+		string _fileName;
 
 		public ConfigAccessor()
 		{
-			fileName = Const.FILE_NAME;
+			_fileName = Const.FILE_NAME;
 		}
 
 		public async Task<bool> writeAsync(InfomationOfUser target)
 		{
 			var contents = JsonConvert.SerializeObject(transrate2JSONInformationOfUser(target));
-			var storage = new StorageAccessor(fileName);
+			var storage = new StorageAccessor(_fileName);
 			return await storage.WriteAsync(contents);
 		}
 
 		public async Task<InfomationOfUser> readAsync()
 		{
-			var storage = new StorageAccessor(fileName);
+			var storage = new StorageAccessor(_fileName);
 			var readData = await Task.WhenAll(storage.ReadAsync());
 			JSONInfomationOfUser content = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData[0]);
 			return transrate2InformationOfUser(content);

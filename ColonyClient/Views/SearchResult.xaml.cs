@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 
@@ -10,6 +11,14 @@ namespace ColonyClient
 		public SearchResult()
 		{
 			InitializeComponent();
+		}
+
+		void OnWanted(object sender, ItemTappedEventArgs e)
+		{
+		}
+
+		void OnGot(object sender, ItemTappedEventArgs e)
+		{
 		}
 	}
 }

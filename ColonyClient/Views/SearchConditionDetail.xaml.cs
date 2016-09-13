@@ -5,14 +5,14 @@ using Xamarin.Forms;
 
 namespace ColonyClient
 {
-	public partial class SearchCondition : ContentPage
+	public partial class SearchConditionDetail : ContentPage
 	{
-		public SearchCondition()
+		public SearchConditionDetail()
 		{
 			InitializeComponent();
 		}
 
-		public void SearchDetailButtonClicked(object sender, EventArgs e)
+		public void GoToSimpleSearchButtonClicked(object sender, EventArgs e)
 		{
 		}
 

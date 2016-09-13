@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="ColonyClient.SearchConditionDetail"
+		Title="Search Codition Detail"
+		BackgroundColor="Black">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label BackgroundColor="White" Text="Mode" />
+			<Entry BackgroundColor="White" Text="{Binding Mode}"/>
+			<Label BackgroundColor="White" Text="What" />
+			<Entry BackgroundColor="White" Text="{Binding WhatAttribute}" Placeholder="Enter WHAT Information!"/>
+			<Label BackgroundColor="White" Text="Occurrence Time" />
+			<Entry BackgroundColor="White" Text="{Binding OccurrenceTime}" Placeholder="Enter OCCURENCE TIME!"/>
+			<Label BackgroundColor="White" Text="When" />
+			<Entry BackgroundColor="White" Text="{Binding WhenAttribute}" Placeholder="Enter WHEN Information!"/>
+			<Label BackgroundColor="White" Text="Why" />
+			<Entry BackgroundColor="White" Text="{Binding WhyAttribute}" Placeholder="Enter WHY Information!"/>
+			<Label BackgroundColor="White" Text="Who" />
+			<Entry BackgroundColor="White" Text="{Binding WhoAttribute}" Placeholder="Enter WHO Information!" />
+			<Label BackgroundColor="White" Text="Where" />
+			<Entry BackgroundColor="White" Text="{Binding WhereAttribute}" Placeholder="Enter WHERE Information!"/>
+			<Label BackgroundColor="White" Text="Whom" />
+			<Entry BackgroundColor="White" Text="{Binding WhomAttribute}" Placeholder="Enter WHOM Information"/>
+			<Label BackgroundColor="White" Text="How" />
+			<Entry BackgroundColor="White" Text="{Binding HowAttribute}" Placeholder="Enter HOW Information!"/>
+			<Label BackgroundColor="White" Text="How Much" />
+			<Entry BackgroundColor="White" Text="{Binding HowMuchAttribute}" Placeholder="Enter HOW MUCH Information!"/>
+			<Label BackgroundColor="White" Text="How Many" />
+			<Entry BackgroundColor="White" Text="{Binding HowManyAttribute}" Placeholder="Enter HOW MANY Information!"/>
+			<Button Text="Go to Simple Search!" TextColor="White" BackgroundColor="#005756" Clicked="GoToSimpleSearchButtonClicked" />
+			<Button Text="Execute Searching" TextColor="White" BackgroundColor="#66cc66" Clicked="SearchButtonClicked" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

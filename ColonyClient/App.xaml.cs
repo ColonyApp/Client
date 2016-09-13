@@ -9,7 +9,8 @@ namespace ColonyClient
 			InitializeComponent();
 
 			//MainPage = new ColonyClientPage();
-			MainPage = new ConfigGeneral();
+			MainPage = new TabbedMainPage();
+
 		}
 
 		protected override void OnStart()

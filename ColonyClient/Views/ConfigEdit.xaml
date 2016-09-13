@@ -1,5 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ColonyClient.ConfigEdit">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="ColonyClient.ConfigEdit"
+		Title = "Edit Config Setting"
+		BackgroundColor="Black">
 	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="Old Nick Name" BackgroundColor="White"/>
+			<Entry Text="{Binding OldNickName}" BackgroundColor="White"/>
+			<Label Text="New Nick Name" BackgroundColor="White"/>
+			<Entry Text="" BackgroundColor="White" Placeholder="Enter New Nick Name!"/>
+			<Label Text="Old Mail Address" BackgroundColor="White"/>
+			<Entry Text="{Binding OldMailAddress}" BackgroundColor="White"/>
+			<Label Text="New Mail Address" BackgroundColor="White"/>
+			<Entry Text="" BackgroundColor="White" Placeholder="Enter New Mail Address!"/>
+			<Label Text="Old Group Name" BackgroundColor="White" IsEnabled="false"/>
+			<Entry Text="{Binding OldGroupName01}" BackgroundColor="White" IsEnabled="false"/>
+			<Label Text="New Group Name" BackgroundColor="White" IsEnabled="false"/>
+			<Entry Text="" BackgroundColor="White" Placeholder="Enter New Group Name" IsEnabled="false"/>
+			<Button Text="Submit" TextColor="White" Clicked="OnSubmitClicked" BackgroundColor="#005756" />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

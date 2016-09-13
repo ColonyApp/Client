@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ColonyClient.SearchResult">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="ColonyClient.SearchResult"
+		Title = "Search Result"
+		BackgroundColor="Black">
 	<ContentPage.Content>
+		<ListView ItemsSource="{Binding Path=SearchResult}" ItemSelected="OnSelected" ItemTapped="OnTapped" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<MenuItem Text="Want" Clicked="OnWanted" CommandParameter="{Binding .}" />
+						<MenuItem Text="Get" Clicked="OnGot" CommandParameter="{Binding .}" />
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</ContentPage.Content>
 </ContentPage>

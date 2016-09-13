@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ColonyClient.SearchCondition">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="ColonyClient.SearchCondition"
+		Title = "Search Condition"
+		BackgroundColor="Black">
 	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="Condition" BackgroundColor="White"/>
+			<Entry Text="" BackgroundColor="White" Placeholder="Enter Searching Condition!"/>
+			<Button Text="Set Detail Condition" TextColor="White" BackgroundColor="#005756" Clicked="SearchDetailButtonClicked" />
+			<Button Text="Execute Searching" TextColor="White" BackgroundColor="#66cc66" Clicked="SearchButtonClicked" />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

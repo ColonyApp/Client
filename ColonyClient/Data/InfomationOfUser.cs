@@ -14,6 +14,12 @@ namespace ColonyClient
 		public Guid GroupID01 { get; set; }
 
 		public string GroupName01 { get; set; }
+
+		public string OldNickName { get; set; }
+
+		public string OldMailAddress { get; set;}
+
+		public string OldGroupName01 { get; set;}
 	}
 }
 
