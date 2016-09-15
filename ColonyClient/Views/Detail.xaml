@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		x:Class="ColonyClient.Detail"
+		Title="Detail"
+		BackgroundColor="Black">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout HeightRequest="2000" BackgroundColor="Black" Spacing="20">
+				<Label BackgroundColor="Black" Text="Mode" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding Mode}" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="What" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhatAttribute}" Placeholder="Enter WHAT Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="Occurrence Time" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding OccurrenceTime}" Placeholder="Enter OCCURENCE TIME!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="When" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhenAttribute}" Placeholder="Enter WHEN Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="Why" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhyAttribute}" Placeholder="Enter WHY Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="Who" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhoAttribute}" Placeholder="Enter WHO Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="Where" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhereAttribute}" Placeholder="Enter WHERE Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="Whom" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding WhomAttribute}" Placeholder="Enter WHOM Information" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="How" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding HowAttribute}" Placeholder="Enter HOW Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="How Much" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding HowMuchAttribute}" Placeholder="Enter HOW MUCH Information!" TextColor="Black" />
+				<Label BackgroundColor="Black" Text="How Many" TextColor="White" />
+				<Entry BackgroundColor="White" Text="{Binding HowManyAttribute}" Placeholder="Enter HOW MANY Information!" TextColor="Black" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

@@ -12,7 +12,7 @@
 			<Entry Text="{Binding MailAddress}" TextColor="Black" IsEnabled="false" BackgroundColor="White" />
 			<Label Text="Group" IsEnabled="false" TextColor="White" IsVisible="false" BackgroundColor="Black" />
 			<Entry Text="{Binding GroupName01}" IsEnabled="false" TextColor="Black" IsVisible="false" BackgroundColor="White" />
-			<Button Text="Edit!" Clicked="OnEditButtonClicked" BackgroundColor="#66cc66" TextColor="White" />
+			<Button Text="Edit!" Command="{Binding GoToEditPage}" BackgroundColor="#66cc66" TextColor="White" />
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
