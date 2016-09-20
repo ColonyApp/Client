@@ -18,6 +18,7 @@ namespace ColonyClient.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
+			App.DataManeger = new DataManeger(new SoapService());
 
 			LoadApplication(new App());
 

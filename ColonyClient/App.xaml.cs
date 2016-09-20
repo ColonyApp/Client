@@ -4,6 +4,7 @@ namespace ColonyClient
 {
 	public partial class App : Application
 	{
+		public static DataManeger DataManeger { get; set; }
 		public App()
 		{
 			InitializeComponent();

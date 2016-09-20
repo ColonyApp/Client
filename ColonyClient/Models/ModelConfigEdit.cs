@@ -22,9 +22,12 @@ namespace ColonyClient
 
 		public bool UpdateUserInfo(InfomationOfUser user)
 		{
-			bool returnvalue = false;
-			//var service = new
-			return returnvalue;
+			var result = App.DataManeger.ModifyUserAsync(user.OldNickName
+			                                             , user.NickName
+			                                             , user.OldMailAddress
+			                                             , user.MailAddress
+			                                             , user.UserID);
+			return result.Result;
 		}
 	}
 }
