@@ -13,12 +13,33 @@ namespace ColonyClient
 
 		public InfomationOfUser GetInitialData()
 		{
-			return _configAccessor.readAsync().Result;
+			InfomationOfUser returnValue = null;
+			var configFileContents = _configAccessor.readAsync();
+			if (configFileContents != null)
+			{
+				returnValue = configFileContents;
+			}
+			else
+			{
+				returnValue = new InfomationOfUser
+				{
+					UserID = Guid.NewGuid(),
+					NickName = string.Empty,
+					MailAddress = string.Empty,
+					IsLogicalDelete = false,
+					GroupID01 = Guid.NewGuid(),
+					GroupName01 = string.Empty,
+					OldNickName = string.Empty,
+					OldMailAddress =  string.Empty,
+					OldGroupName01 = string.Empty
+				};
+			}
+			return returnValue;
 		}
 
 		public bool SetUserInfo(InfomationOfUser user)
 		{
-			return _configAccessor.writeAsync(user).Result;
+			return _configAccessor.writeAsync(user);
 		}
 
 		public bool UpdateUserInfo(InfomationOfUser user)

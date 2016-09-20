@@ -37,9 +37,6 @@
     <EmbeddedResource Include="Views\SearchResult.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ConfigGeneral.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConfigEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -70,9 +67,6 @@
     <Compile Include="Views\SearchResult.xaml.cs">
       <DependentUpon>SearchResult.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ConfigGeneral.xaml.cs">
-      <DependentUpon>ConfigGeneral.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ConfigEdit.xaml.cs">
       <DependentUpon>ConfigEdit.xaml</DependentUpon>
     </Compile>
@@ -97,7 +91,6 @@
       <DependentUpon>SearchConditionDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ViewModelConfigEdit.cs" />
-    <Compile Include="ViewModels\ViewModelConfigGeneral.cs" />
     <Compile Include="ViewModels\ViewModelGet.cs" />
     <Compile Include="ViewModels\ViewModelGive.cs" />
     <Compile Include="ViewModels\ViewModelSearchCondition.cs" />
@@ -105,7 +98,6 @@
     <Compile Include="ViewModels\ViewModelSearchResult.cs" />
     <Compile Include="ViewModels\ViewModelWant.cs" />
     <Compile Include="Models\ModelConfigEdit.cs" />
-    <Compile Include="Models\ModelConfigGeneral.cs" />
     <Compile Include="Models\ModelGet.cs" />
     <Compile Include="Models\ModelGive.cs" />
     <Compile Include="Models\ModelSearcCondition.cs" />

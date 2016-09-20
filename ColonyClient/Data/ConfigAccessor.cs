@@ -13,19 +13,21 @@ namespace ColonyClient
 			_fileName = Const.FILE_NAME;
 		}
 
-		public async Task<bool> writeAsync(InfomationOfUser target)
+		public bool writeAsync(InfomationOfUser target)
 		{
 			var contents = JsonConvert.SerializeObject(transrate2JSONInformationOfUser(target));
 			var storage = new StorageAccessor(_fileName);
-			return await storage.WriteAsync(contents);
+			return storage.Save(contents).Result;
+			//return await storage.WriteAsync(contents);
 		}
 
-		public async Task<InfomationOfUser> readAsync()
+		public InfomationOfUser readAsync()
 		{
-			var returnValue = new InfomationOfUser();
+			InfomationOfUser returnValue = null;
 			var storage = new StorageAccessor(_fileName);
-			var readData = await storage.ReadAsync();
-			if (!string.IsNullOrEmpty(readData))
+			//var readData = await storage.ReadAsync();
+			var readData = storage.Load();
+			if (!string.IsNullOrEmpty(readData) || !string.IsNullOrWhiteSpace(readData))
 			{
 				JSONInfomationOfUser content = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData);
 				returnValue = transrate2InformationOfUser(content);

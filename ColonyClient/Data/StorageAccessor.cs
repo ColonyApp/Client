@@ -18,38 +18,69 @@ namespace ColonyClient
 			FileName = fileName;
 		}
 
-		public async Task<bool> WriteAsync(string contents)
+		//public async Task<bool> WriteAsync(string contents)
+		//{
+		//	bool returnValue = false;
+		//	try
+		//	{
+		//		IFolder rootFolder = FileSystem.Current.LocalStorage;
+		//		IFile file = await rootFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
+		//		await file.WriteAllTextAsync(contents);
+		//		returnValue = true;
+		//	}
+		//	catch
+		//	{
+		//		returnValue = false;
+		//	}
+		//	return returnValue;
+		//}
+
+		//public async Task<string> ReadAsync()
+		//{
+		//	string returnValue = string.Empty;
+		//	IFolder rootFolder = FileSystem.Current.LocalStorage;
+		//	var res = await rootFolder.CheckExistsAsync(FileName);
+		//	if (res == ExistenceCheckResult.FileExists)
+		//	{
+		//		IFile file = await rootFolder.GetFileAsync(FileName);
+		//		returnValue = await file.ReadAllTextAsync();
+		//	}
+		//	else
+		//	{
+		//		throw new Exception("Couldn't read");
+		//	}
+		//	return returnValue;
+		//}
+
+		public async Task<bool> Save(string contents)
 		{
 			bool returnValue = false;
 			try
 			{
 				IFolder rootFolder = FileSystem.Current.LocalStorage;
 				IFile file = await rootFolder.CreateFileAsync(FileName, CreationCollisionOption.ReplaceExisting);
-				await Task.WhenAll(file.WriteAllTextAsync(contents));
+				await file.WriteAllTextAsync(contents);
 				returnValue = true;
 			}
 			catch
 			{
 				returnValue = false;
+				throw new Exception("Didn't Save!");
 			}
 			return returnValue;
 		}
-
-		public async Task<string> ReadAsync()
+		public string Load()
 		{
-			string returnValue = string.Empty;
-			IFolder rootFolder = FileSystem.Current.LocalStorage;
-			var res = await rootFolder.CheckExistsAsync(FileName);
-			if (res == ExistenceCheckResult.FileExists)
+			try
 			{
-				IFile file = await rootFolder.GetFileAsync(FileName);
-				returnValue = await file.ReadAllTextAsync();
+				IFolder rootFolder = FileSystem.Current.LocalStorage;
+				IFile file = rootFolder.GetFileAsync(FileName).Result;
+				return file.ReadAllTextAsync().Result;
 			}
-			else
+			catch
 			{
-				throw new Exception("Couldn't read");
+				throw new Exception("Didn't Load!");
 			}
-			return returnValue;
 		}
 
 		public async Task<bool> CheckExistsFile()

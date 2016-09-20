@@ -32,14 +32,14 @@ namespace ColonyClient
 
 		private void update()
 		{
-			
+			_model.SetUserInfo(UserInfo);
 		}
 
 		private ModelConfigEdit _model;
 		public ViewModelConfigEdit()
 		{
 			_model = new ModelConfigEdit();
-			//getInitialData();
+			getInitialData();
 		}
 
 		private void getInitialData()
