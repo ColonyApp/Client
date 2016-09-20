@@ -1,24 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		x:Class="ColonyClient.ConfigEdit"
 		Title = "Edit Config Setting"
 		BackgroundColor="Black">
 	<ContentPage.Content>
-		<StackLayout Spacing="20">
-			<Label Text="Old Nick Name" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
-			<Entry Text="{Binding OldNickName}" TextColor="Black" IsEnabled="false" BackgroundColor="White" />
-			<Label Text="New Nick Name" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
-			<Entry Text="" TextColor="Black" Placeholder="Enter New Nick Name!" IsEnabled="true" BackgroundColor="White" />
-			<Label Text="Old Mail Address" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
-			<Entry Text="{Binding OldMailAddress}" TextColor="Black" IsEnabled="false" BackgroundColor="White" />
-			<Label Text="New Mail Address" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
-			<Entry Text="" TextColor="Black" Placeholder="Enter New Mail Address!" IsEnabled="true" BackgroundColor="White" />
-			<Label Text="Old Group Name" TextColor="White" IsEnabled="false" IsVisible="false" BackgroundColor="Black" />
-			<Entry Text="{Binding OldGroupName01}" TextColor="Black" IsEnabled="false" IsVisible="false" BackgroundColor="White" />
-			<Label Text="New Group Name" TextColor="White" IsEnabled="false" IsVisible="false" BackgroundColor="Black" />
-			<Entry Text="" TextColor="Black" Placeholder="Enter New Group Name" IsEnabled="true" IsVisible="false" BackgroundColor="White" />
-			<Button Text="Submit" TextColor="White" Clicked="OnSubmitClicked" BackgroundColor="#66cc66" />
-		</StackLayout>
+		<ScrollView>	
+			<StackLayout Spacing="20">
+				
+				<Label Text="Nick Name" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
+				<Entry Text="{Binding NickName}" TextColor="Black" Placeholder="Enter New Nick Name!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
+
+				<Label Text="Mail Address" TextColor="White" IsEnabled="false" BackgroundColor="Black" IsVisible="{Binding Status}"/>
+				<Entry Text="{Binding MailAddress}" TextColor="Black" Placeholder="Enter New Mail Address!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
+				
+				<Label Text="Group Name" TextColor="White" IsEnabled="false" IsVisible="false" BackgroundColor="Black" />
+				<Entry Text="{Binding GroupName01}" TextColor="Black" Placeholder="Enter New Group Name" IsEnabled="true" IsVisible="false" BackgroundColor="White" />
+
+				<Button Text="Update" TextColor="White" Command="{Binding UpdateChanging}" BackgroundColor="#66cc66" />
+			</StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

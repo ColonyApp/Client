@@ -51,6 +51,22 @@ namespace ColonyClient
 			}
 			return returnValue;
 		}
+
+		public async Task<bool> CheckExistsFile()
+		{
+			var returnValue = false;
+			IFolder rootFolder = FileSystem.Current.LocalStorage;
+			var res = await rootFolder.CheckExistsAsync(FileName);
+			if (res == ExistenceCheckResult.FileExists)
+			{
+				returnValue = true;
+			}
+			else
+			{
+				returnValue = false;
+			}
+			return returnValue;
+		}
 	}
 }
 

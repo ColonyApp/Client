@@ -9,15 +9,13 @@ namespace ColonyClient
 {
 	public partial class ConfigEdit : ContentPage
 	{
-		
-		public ConfigEdit(InfomationOfUser userInfo)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ColonyClient.ConfigEdit"/> class.
+		/// </summary>
+		public ConfigEdit()
 		{
 			InitializeComponent();
-			BindingContext = userInfo;
-		}
-
-		public void OnSubmitClicked(object sender, EventArgs e)
-		{
+			this.BindingContext = new ViewModelConfigEdit();
 		}
 	}
 }

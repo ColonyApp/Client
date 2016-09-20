@@ -117,6 +117,8 @@
     <Compile Include="Views\Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\ISoapService.cs" />
+    <Compile Include="Data\DataManeger.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PCLStorage">

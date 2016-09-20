@@ -9,9 +9,10 @@ namespace ColonyClient
 		public TabbedMainPage()
 		{
 			this.Title = Const.THIS_APP_NAME;
+			this.BackgroundColor = Color.Black;
 
 			#region Create "CONFIG_GENERAL" XAML PAGE
-			var configGeneral = new NavigationPage(new ConfigGeneral());
+			var configGeneral = new NavigationPage(new ConfigEdit());
 			configGeneral.Title = Const.CONFIG_GENERAL_XAML;
 			configGeneral.Icon = Const.CONFIG_GENERAL_ICON;
 			configGeneral.BarBackgroundColor = Color.Black;

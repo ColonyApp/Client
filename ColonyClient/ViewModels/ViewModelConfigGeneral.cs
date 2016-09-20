@@ -6,7 +6,7 @@ namespace ColonyClient
 {
 	public class ViewModelConfigGeneral : BindableBase
 	{
-		//private ModelConfigGeneral model = new ModelConfigGeneral();
+		//private ModelConfigGeneral _model = new ModelConfigGeneral();
 
 		/// <summary>
 		/// The navigation.
@@ -17,7 +17,7 @@ namespace ColonyClient
 		/// Gets the go to edit page.
 		/// </summary>
 		/// <value>The go to edit page.</value>
-		public ICommand GoToEditPage{ get; private set;}
+		public ICommand GoToEditPage { get; private set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:ColonyClient.ViewModelConfigGeneral"/> class.
@@ -26,32 +26,32 @@ namespace ColonyClient
 		public ViewModelConfigGeneral(INavigation navigation)
 		{
 			_navigation = navigation;
-			this.GoToEditPage = new Command(async () =>
-			{
-				await _navigation.PushAsync(new ConfigEdit(UserInfo));
-			});
+			//this.GoToEditPage = new Command(async () =>
+			//{
+			//	await _navigation.PushAsync(new ConfigEdit(UserInfo));
+			//});
 		}
 
 		/// <summary>
 		/// The user info.
 		/// </summary>
-		private InfomationOfUser userInfo;
+		private InfomationOfUser _userInfo;
 		/// <summary>
 		/// Gets or sets the user info.
 		/// </summary>
 		/// <value>The user info.</value>
 		public InfomationOfUser UserInfo
 		{
-			get { return userInfo; }
+			get { return _userInfo; }
 			set
 			{
-				if (userInfo != null)
+				if (_userInfo != null)
 				{
-					userInfo.OldNickName = userInfo.NickName;
-					userInfo.OldMailAddress = userInfo.MailAddress;
-					userInfo.OldGroupName01 = userInfo.GroupName01;
-					userInfo = value;
-					SetProperty(ref this.userInfo, value);
+					_userInfo = value;
+					_userInfo.OldNickName = _userInfo.NickName;
+					_userInfo.OldMailAddress = _userInfo.MailAddress;
+					_userInfo.OldGroupName01 = _userInfo.GroupName01;
+					SetProperty(ref this._userInfo, value);
 				}
 			}
 		}

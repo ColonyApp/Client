@@ -22,10 +22,21 @@ namespace ColonyClient
 
 		public async Task<InfomationOfUser> readAsync()
 		{
+			var returnValue = new InfomationOfUser();
 			var storage = new StorageAccessor(_fileName);
-			var readData = await Task.WhenAll(storage.ReadAsync());
-			JSONInfomationOfUser content = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData[0]);
-			return transrate2InformationOfUser(content);
+			var readData = await storage.ReadAsync();
+			if (!string.IsNullOrEmpty(readData))
+			{
+				JSONInfomationOfUser content = JsonConvert.DeserializeObject<JSONInfomationOfUser>(readData);
+				returnValue = transrate2InformationOfUser(content);
+			}
+			return returnValue;
+		}
+
+		public async Task<bool> IsExistConfigFile()
+		{
+			var storage = new StorageAccessor(_fileName);
+			return await storage.CheckExistsFile();
 		}
 
 		private InfomationOfUser transrate2InformationOfUser(JSONInfomationOfUser target)

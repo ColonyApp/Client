@@ -43,7 +43,7 @@ namespace ColonyClient
 		/// <param name="parameter">Parameter.</param>
 		public bool CanExecute(object parameter)
 		{
-			return _canExecute == null ? true : _canExecute();
+			return _canExecute == null ? true : _canExecute.Invoke();
 		}
 		/// <summary>
 		/// Execute the specified parameter.
@@ -51,7 +51,10 @@ namespace ColonyClient
 		/// <param name="parameter">Parameter.</param>
 		public void Execute(object parameter)
 		{
-			_execute();
+			if (CanExecute(parameter) && _execute != null)
+			{
+				_execute.Invoke();
+			}
 		}
 		/// <summary>
 		/// Raises the can execute changed.
@@ -106,7 +109,7 @@ namespace ColonyClient
 		/// <param name="parameter">Parameter.</param>
 		public bool CanExecute(object parameter)
 		{
-			return _canExecute == null ? true : _canExecute((T)parameter);
+			return _canExecute == null ? true : _canExecute.Invoke((T)parameter);
 		}
 		/// <summary>
 		/// Execute the specified parameter.
@@ -114,7 +117,10 @@ namespace ColonyClient
 		/// <param name="parameter">Parameter.</param>
 		public void Execute(object parameter)
 		{
-			_execute((T)parameter);
+			if (CanExecute(parameter) && _execute != null)
+			{
+				_execute.Invoke((T)parameter);
+			}
 		}
 		/// <summary>
 		/// Raises the can execute changed.
