@@ -12,10 +12,10 @@ namespace ColonyClient
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:ColonyClient.ConfigEdit"/> class.
 		/// </summary>
-		public ConfigEdit()
+		public ConfigEdit(ViewModelTabbedMainPage vm)
 		{
 			InitializeComponent();
-			this.BindingContext = new ViewModelConfigEdit();
+			this.BindingContext = new ViewModelConfigEdit(vm);
 		}
 	}
 }

@@ -4,45 +4,51 @@ namespace ColonyClient
 {
 	public class ModelConfigEdit
 	{
-		private ConfigAccessor _configAccessor;
-
-		public ModelConfigEdit()
+		/// <summary>
+		/// The vm.
+		/// </summary>
+		ViewModelTabbedMainPage _vm;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ColonyClient.ModelConfigEdit"/> class.
+		/// </summary>
+		/// <param name="tabbedMainPage">Tabbed main page.</param>
+		public ModelConfigEdit(ViewModelTabbedMainPage tabbedMainPage)
 		{
-			_configAccessor = new ConfigAccessor();
+			_vm = tabbedMainPage;
+			_vm.UserInfo = _vm.GetInitialData();
 		}
-
+		/// <summary>
+		/// Gets the initial data.
+		/// </summary>
+		/// <returns>The initial data.</returns>
 		public InfomationOfUser GetInitialData()
 		{
-			InfomationOfUser returnValue = null;
-			var configFileContents = _configAccessor.readAsync();
-			if (configFileContents != null)
+			return _vm.GetInitialData();
+		}
+		/// <summary>
+		/// Sets the user info.
+		/// </summary>
+		/// <returns><c>true</c>, if user info was set, <c>false</c> otherwise.</returns>
+		/// <param name="user">User.</param>
+		public bool SetUserInfo(InfomationOfUser user)
+		{
+			bool returnValue = false;
+			if (_vm.SetUserInfo(user))
 			{
-				returnValue = configFileContents;
+				returnValue = UpdateUserInfo(user);
 			}
 			else
 			{
-				returnValue = new InfomationOfUser
-				{
-					UserID = Guid.NewGuid(),
-					NickName = string.Empty,
-					MailAddress = string.Empty,
-					IsLogicalDelete = false,
-					GroupID01 = Guid.NewGuid(),
-					GroupName01 = string.Empty,
-					OldNickName = string.Empty,
-					OldMailAddress =  string.Empty,
-					OldGroupName01 = string.Empty
-				};
+				returnValue = false;
 			}
 			return returnValue;
 		}
-
-		public bool SetUserInfo(InfomationOfUser user)
-		{
-			return _configAccessor.writeAsync(user);
-		}
-
-		public bool UpdateUserInfo(InfomationOfUser user)
+		/// <summary>
+		/// Updates the user info.
+		/// </summary>
+		/// <returns><c>true</c>, if user info was updated, <c>false</c> otherwise.</returns>
+		/// <param name="user">User.</param>
+		private bool UpdateUserInfo(InfomationOfUser user)
 		{
 			var result = App.DataManeger.ModifyUserAsync(user.OldNickName
 			                                             , user.NickName

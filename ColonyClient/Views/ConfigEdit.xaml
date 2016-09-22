@@ -9,13 +9,13 @@
 			<StackLayout Spacing="20">
 				
 				<Label Text="Nick Name" TextColor="White" IsEnabled="false" BackgroundColor="Black" />
-				<Entry Text="{Binding NickName}" TextColor="Black" Placeholder="Enter New Nick Name!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
+				<Entry Text="{Binding UserInfo.NickName,Mode=TwoWay}" TextColor="Black" Placeholder="Enter New Nick Name!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
 
 				<Label Text="Mail Address" TextColor="White" IsEnabled="false" BackgroundColor="Black" IsVisible="{Binding Status}"/>
-				<Entry Text="{Binding MailAddress}" TextColor="Black" Placeholder="Enter New Mail Address!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
+				<Entry Text="{Binding UserInfo.MailAddress,Mode=TwoWay}" TextColor="Black" Placeholder="Enter New Mail Address!" IsEnabled="true" BackgroundColor="White" IsVisible="{Binding Status}"/>
 				
 				<Label Text="Group Name" TextColor="White" IsEnabled="false" IsVisible="false" BackgroundColor="Black" />
-				<Entry Text="{Binding GroupName01}" TextColor="Black" Placeholder="Enter New Group Name" IsEnabled="true" IsVisible="false" BackgroundColor="White" />
+				<Entry Text="{Binding UserInfo.GroupName01,Mode=TwoWay}" TextColor="Black" Placeholder="Enter New Group Name" IsEnabled="true" IsVisible="false" BackgroundColor="White" />
 
 				<Button Text="Update" TextColor="White" Command="{Binding UpdateChanging}" BackgroundColor="#66cc66" />
 			</StackLayout>

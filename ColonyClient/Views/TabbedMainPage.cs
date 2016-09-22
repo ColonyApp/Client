@@ -8,11 +8,13 @@ namespace ColonyClient
 		#region Default Constractor
 		public TabbedMainPage()
 		{
+			var vm = new ViewModelTabbedMainPage();
 			this.Title = Const.THIS_APP_NAME;
 			this.BackgroundColor = Color.Black;
+			this.BindingContext = vm;
 
 			#region Create "CONFIG_GENERAL" XAML PAGE
-			var configGeneral = new NavigationPage(new ConfigEdit());
+			var configGeneral = new NavigationPage(new ConfigEdit(vm));
 			configGeneral.Title = Const.CONFIG_GENERAL_XAML;
 			configGeneral.Icon = Const.CONFIG_GENERAL_ICON;
 			configGeneral.BarBackgroundColor = Color.Black;

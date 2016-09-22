@@ -17,9 +17,11 @@ namespace ColonyClient
 
 		public string OldNickName { get; set; }
 
-		public string OldMailAddress { get; set;}
+		public string OldMailAddress { get; set; }
 
-		public string OldGroupName01 { get; set;}
+		public string OldGroupName01 { get; set; }
+
+		public bool IsInitial { get; set; }
 	}
 }
 
