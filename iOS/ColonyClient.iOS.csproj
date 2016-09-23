@@ -137,10 +137,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="SoapService.cs" />
     <Compile Include="Web References\colonywebservices.azurewebsites.net\Reference.cs">
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="SoapService.cs" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References" />

@@ -15,7 +15,7 @@ namespace ColonyClient
 		public ModelConfigEdit(ViewModelTabbedMainPage tabbedMainPage)
 		{
 			_vm = tabbedMainPage;
-			_vm.UserInfo = _vm.GetInitialData();
+			//_vm.UserInfo = _vm.GetInitialData();
 		}
 		/// <summary>
 		/// Gets the initial data.
@@ -23,7 +23,11 @@ namespace ColonyClient
 		/// <returns>The initial data.</returns>
 		public InfomationOfUser GetInitialData()
 		{
-			return _vm.GetInitialData();
+			if (IsNullOrEmpty(_vm.UserInfo.NickName))
+			{
+				return _vm.GetInitialData();
+			}
+			return SearchUserInfoAsync(_vm.UserInfo).Result;
 		}
 		/// <summary>
 		/// Sets the user info.
@@ -33,11 +37,20 @@ namespace ColonyClient
 		public bool SetUserInfo(InfomationOfUser user)
 		{
 			bool returnValue = false;
-			if (_vm.SetUserInfo(user))
+			try
 			{
-				returnValue = UpdateUserInfo(user);
+				if (HasUserAsync(user).Result)
+				{
+					_vm.SetUserInfo(user);
+					returnValue = UpdateUserInfo(user).Result;
+				}
+				else
+				{
+					_vm.SetUserInfo(user);
+					returnValue = CreateUserInfoAsync(user).Result;
+				}
 			}
-			else
+			catch
 			{
 				returnValue = false;
 			}
@@ -48,14 +61,41 @@ namespace ColonyClient
 		/// </summary>
 		/// <returns><c>true</c>, if user info was updated, <c>false</c> otherwise.</returns>
 		/// <param name="user">User.</param>
-		private bool UpdateUserInfo(InfomationOfUser user)
+		private async Task<bool> UpdateUserInfo(InfomationOfUser user)
 		{
-			var result = App.DataManeger.ModifyUserAsync(user.OldNickName
-			                                             , user.NickName
-			                                             , user.OldMailAddress
-			                                             , user.MailAddress
-			                                             , user.UserID);
-			return result.Result;
+			var result = await App.DataManeger.ModifyUserAsync(user.OldNickName
+				                                             , user.NickName
+				                                             , user.OldMailAddress
+				                                             , user.MailAddress
+				                                             , user.UserID);
+			return result;
+		}
+
+		private async Task<bool> CreateUserInfoAsync(InfomationOfUser user)
+		{
+			var result = await App.DataManeger.CreateUserAsync(user.NickName, user.MailAddress);
+			return result;
+		}
+
+		private async Task<bool> HasUserAsync(InfomationOfUser user)
+		{
+			var result = await App.DataManeger.HasUserWithoutIdAsync(user.NickName, user.MailAddress);
+			return result;
+		}
+
+		private async Task<InfomationOfUser> SearchUserInfoAsync(InfomationOfUser user)
+		{
+			var result = await App.DataManeger.SearchUserDataAsync(user.NickName, user.MailAddress);
+			return result;
+		}
+		private bool IsNullOrEmpty(string target)
+		{
+			bool returnValue = false;
+			if (string.IsNullOrEmpty(target) || string.IsNullOrWhiteSpace(target))
+			{
+				returnValue = true;
+			}
+			return returnValue;
 		}
 	}
 }

@@ -8,9 +8,12 @@ namespace ColonyClient
 		#region Default Constractor
 		public TabbedMainPage()
 		{
-			var vm = new ViewModelTabbedMainPage();
 			this.Title = Const.THIS_APP_NAME;
 			this.BackgroundColor = Color.Black;
+
+			var vm = new ViewModelTabbedMainPage();
+			vm.UserInfo.IsInitial = false;
+			//vm.SetInitialRun(vm.UserInfo.IsInitial);
 			this.BindingContext = vm;
 
 			#region Create "CONFIG_GENERAL" XAML PAGE

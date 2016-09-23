@@ -22,5 +22,13 @@ namespace ColonyClient
 		{
 			return _model.initialData();
 		}
+		public bool SetInitialRun(bool flag)
+		{
+			return _model.SetInitialRun(flag);
+		}
+		public InfomationOfUser GetInitialRun()
+		{
+			return _model.GetInitialRun();
+		}
 	}
 }

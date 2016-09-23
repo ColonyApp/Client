@@ -65,5 +65,23 @@ namespace ColonyClient
 				throw new Exception("Didn't get InformationOfUser Data!");
 			}
 		}
+		public bool SetInitialRun(bool flag)
+		{
+			var returnValue = false;
+			try
+			{
+				App.Current.Properties.Add("IsInitialRun", flag);
+				returnValue = true;
+			}
+			catch
+			{
+				returnValue = false;
+			}
+			return returnValue;
+		}
+		public InfomationOfUser GetInitialRun()
+		{
+			return App.Current.Properties["IsInitialRun"] as InfomationOfUser;
+		}
 	}
 }
